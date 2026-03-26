@@ -6,9 +6,10 @@ services:
     plan: free
     rootDir: backend
     buildCommand: |
-      npm ci --production && \
-      cd ../frontend && npm ci && npm run build && \
-      cp -r build ../backend/public
+      npm install && \
+      cd ../frontend && npm install && npm run build && \
+      mkdir -p ../backend/public && \
+      cp -r build/* ../backend/public/
     startCommand: npm start
     envVars:
       - key: NODE_ENV
